@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hora actual</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #6495ED;
+            background-color: #7A00E6;
+        }
+    </style>
+</head>
+<body>
+<h1>HORA ACTUAL</h1>
+    LA HORA ACTUAL ES:
+    <h1 id="hora" style="font-size: 36px;"></h1>
+
+    <script>
+        function mostrarHora() {
+            var fecha = new Date();
+            var hora = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+            document.getElementById("hora").innerHTML = hora;
+        }
+        setInterval(mostrarHora, 1000);
+
+        function mostrarHora() {
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            var ampm = hora >= 12 ? 'PM' : 'AM';
+            hora = hora % 12;
+            hora = hora ? hora : 12; // la hora 0 es igual a 12
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+            var horaString = hora + ':' + minutos + ':' + segundos + ' ' + ampm;
+            document.getElementById("hora").innerHTML = horaString;
+        }
+    </script>
+</body>
+</html>
